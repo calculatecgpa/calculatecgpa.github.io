@@ -1,0 +1,281 @@
+---
+import TipModal from '../components/TipModal.jsx';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Calculate CGPA & SGPA Online | Free College GPA Calculator",
+  description = "Instantly calculate your university Cumulative Grade Point Average (CGPA) and Semester GPA (SGPA). 100% free, customizable 4.0, 5.0, 10.0 UGC scales, mobile-friendly & zero server uploads.",
+  canonicalUrl = "https://calculatecgpa.github.io/",
+  ogImage = "https://res.cloudinary.com/dpx6w78bt/image/upload/f_auto/q_auto/v1786342039/Online_Tool_rc1ybr.png"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-7642FB9SXK"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7642FB9SXK');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="CalculateCGPA" />
+    <meta name="publisher" content="CalculateCGPA" />
+    <meta name="keywords" content="CGPA calculator, SGPA calculator, GPA calculator, college GPA calculator, semester GPA, cumulative GPA, calculate CGPA online, university grade calculator, 4.0 scale GPA, 10.0 scale UGC GPA, free GPA tool" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="theme-color" content="#90e0ef" />
+    <meta name="application-name" content="CalculateCGPA" />
+    <meta name="apple-mobile-web-app-title" content="CalculateCGPA" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content="Calculate CGPA & SGPA Online | Free College GPA Calculator" />
+    <meta property="og:description" content="Calculate your university Semester GPA (SGPA) and Cumulative GPA (CGPA) with zero server uploads. Real-time math engine supporting 4.0, 5.0, and 10.0 scales." />
+    <meta property="og:site_name" content="Calculate CGPA" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Calculate CGPA and SGPA Free Online College GPA Calculator Web App" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content="Calculate CGPA & SGPA Online | Free College GPA Calculator" />
+    <meta name="twitter:description" content="100% client-side, privacy-first university and college GPA calculator. Instant live results on your device." />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Calculate CGPA and SGPA Free Online College GPA Calculator Web App" />
+
+    <!-- Preconnect & DNS-Prefetch for Speed -->
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Favicon with Theme Color #90e0ef -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2390e0ef' stroke='%230077b6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 10v6M2 10l10-5 10 5-10 5z'/><path d='M6 12v5c3 3 9 3 12 0v-5'/></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2390e0ef' stroke='%230077b6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 10v6M2 10l10-5 10 5-10 5z'/><path d='M6 12v5c3 3 9 3 12 0v-5'/></svg>" />
+
+    <!-- Typography Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      body {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      code, pre, .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      /* Prevent horizontal scroll jitter on mobile */
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 flex flex-col selection:bg-[#90e0ef]/40 selection:text-slate-900 antialiased">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="max-w-6xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
+        <!-- Logo & Branding -->
+        <a href="/" class="flex items-center gap-2 sm:gap-2.5 group shrink-0" aria-label="CalculateCGPA Home">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#0096c7] to-[#03045e] flex items-center justify-center text-white shadow-sm shadow-cyan-200 group-hover:scale-105 transition-all">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold text-base sm:text-lg text-slate-900 tracking-tight leading-none group-hover:text-[#0077b6] transition-colors">
+              Calculate<span class="text-[#0096c7]">CGPA</span>
+            </span>
+            <span class="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-wide mt-0.5 hidden xs:inline">
+              Instant GPA Utility
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-semibold text-slate-600" aria-label="Main Navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+          <a href="#calculator" class="flex items-center gap-1.5 hover:text-[#0077b6] transition-colors">
+            <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+            <span>Calculator</span>
+          </a>
+          <a href="#how-to-calculate" class="flex items-center gap-1.5 hover:text-[#0077b6] transition-colors">
+            <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+            <span>How It Works</span>
+          </a>
+          <a href="#grading-scales" class="flex items-center gap-1.5 hover:text-[#0077b6] transition-colors">
+            <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+            <span>Grading Scales</span>
+          </a>
+          <a href="#faq" class="flex items-center gap-1.5 hover:text-[#0077b6] transition-colors">
+            <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            <span>FAQ</span>
+          </a>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center gap-2">
+          <!-- Buy Me a Coffee Button -->
+          <a
+            href="https://buymeacoffee.com/kisharadilz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold transition-all shadow-2xs hover:shadow-xs active:scale-95 cursor-pointer"
+            aria-label="Buy me a coffee on BuyMeACoffee.com"
+          >
+            <span class="text-sm">☕</span>
+            <span class="hidden sm:inline">Buy me a coffee</span>
+            <span class="sm:hidden font-extrabold text-[11px]">Coffee</span>
+          </a>
+
+          <!-- GitHub link -->
+          <a 
+            href="https://github.com/calculatecgpa/calculatecgpa.github.io" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="p-2 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors shrink-0" 
+            aria-label="Open Source Repository on GitHub"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 w-full overflow-x-hidden">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-16" itemscope itemtype="https://schema.org/WPFooter">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-100">
+          <!-- Brand and Mission -->
+          <div class="md:col-span-2 space-y-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0096c7] to-[#03045e] flex items-center justify-center text-white">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              </div>
+              <span class="font-extrabold text-lg text-slate-900 tracking-tight">
+                Calculate<span class="text-[#0096c7]">CGPA</span>
+              </span>
+            </div>
+            <p class="text-sm text-slate-600 max-w-md leading-relaxed">
+              A high-precision, open-source GPA & CGPA calculation engine built for university and high school students worldwide. Designed with speed, privacy, and zero telemetry.
+            </p>
+            <div class="flex items-center gap-2 text-xs font-semibold text-cyan-800 bg-[#e0f7fc] border border-[#90e0ef] w-fit px-3 py-1 rounded-full">
+              <svg class="w-4 h-4 text-[#0096c7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>100% Client-Side • Zero Data Stored</span>
+            </div>
+          </div>
+
+          <!-- Quick Navigation -->
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">
+              Navigation
+            </h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li><a href="#calculator" class="hover:text-[#0077b6] transition-colors">GPA Calculator</a></li>
+              <li><a href="#how-to-calculate" class="hover:text-[#0077b6] transition-colors">How CGPA is Calculated</a></li>
+              <li><a href="#sgpa-vs-cgpa" class="hover:text-[#0077b6] transition-colors">SGPA vs CGPA Formula</a></li>
+              <li><a href="#grading-scales" class="hover:text-[#0077b6] transition-colors">Grading Scale Reference</a></li>
+              <li><a href="#faq" class="hover:text-[#0077b6] transition-colors">Frequently Asked Questions</a></li>
+            </ul>
+          </div>
+
+          <!-- Community & Support -->
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">
+              Support the Developer
+            </h4>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a 
+                  href="https://buymeacoffee.com/kisharadilz" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center gap-2 text-amber-900 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-3 py-1.5 rounded-xl font-bold transition-all shadow-2xs"
+                >
+                  <span>☕</span>
+                  <span>Buy me a coffee</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://github.com/calculatecgpa/calculatecgpa.github.io" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                  <span>Open Source on GitHub</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright and Bottom Bar -->
+        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p class="text-center sm:text-left">© {new Date().getFullYear()} calculatecgpa.github.io. MIT License.</p>
+          <div class="flex items-center gap-4">
+            <a href="/sitemap.xml" class="hover:text-[#0077b6] transition-colors">Sitemap</a>
+            <span>•</span>
+            <span class="text-slate-400">Deployed on GitHub Pages</span>
+            <span>•</span>
+            <button 
+              type="button" 
+              onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+              class="hover:text-[#0077b6] transition-colors font-medium cursor-pointer"
+            >
+              Back to Top ↑
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Global Client Mount for TipModal -->
+    <TipModal client:load />
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Calculate CGPA & SGPA",
+  "short_name": "CalculateCGPA",
+  "description": "Free Online College GPA & SGPA Calculator with 100% client-side privacy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#90e0ef",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2390e0ef' stroke='%230077b6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 10v6M2 10l10-5 10 5-10 5z'/><path d='M6 12v5c3 3 9 3 12 0v-5'/></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
