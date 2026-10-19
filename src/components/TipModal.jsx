@@ -46,7 +46,7 @@ export default function TipModal({ isOpen: controlledIsOpen, onClose: controlled
               </div>
               <div>
                 <h3 id="tip-modal-title" className="text-base sm:text-lg font-bold text-slate-900">
-                  Buy Me a Coffee
+                  Support the Developer
                 </h3>
                 <p className="text-xs text-slate-500">
                   Support calculatecgpa.github.io
@@ -66,12 +66,12 @@ export default function TipModal({ isOpen: controlledIsOpen, onClose: controlled
           {/* Body Content */}
           <div className="py-4 space-y-4 text-slate-600 text-xs sm:text-sm">
             <p className="leading-relaxed">
-              <strong>calculatecgpa.github.io</strong> is 100% free, private, and ad-free. If this calculator helped you with your semester or cumulative grades, consider buying me a coffee to support hosting and maintenance!
+              <strong>calculatecgpa.github.io</strong> is 100% free, private, and ad-free. If this calculator helped you with your semester or cumulative grades, consider supporting on Ko-fi to help cover hosting and maintenance!
             </p>
 
-            {/* Buy Me a Coffee Link Card */}
+            {/* Ko-fi Link Card */}
             <a
-              href="https://buymeacoffee.com/kisharadilz"
+              href="https://ko-fi.com/kishara"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between p-4 rounded-2xl border-2 border-amber-300 bg-amber-50 hover:bg-amber-100 transition-all group shadow-sm hover:shadow-md cursor-pointer"
@@ -82,10 +82,10 @@ export default function TipModal({ isOpen: controlledIsOpen, onClose: controlled
                 </div>
                 <div>
                   <div className="text-sm font-bold text-amber-950">
-                    Buy Me a Coffee
+                    Support on Ko-fi
                   </div>
                   <div className="text-xs text-amber-800 font-medium">
-                    buymeacoffee.com/kisharadilz
+                    ko-fi.com/kishara
                   </div>
                 </div>
               </div>
